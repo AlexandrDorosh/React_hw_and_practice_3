@@ -1,0 +1,19 @@
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    column-gap: 40px;
+    background-color: #61dafb;
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}
+
+.page{
+    margin-left: 50px;
+    width: 93%;
+}
