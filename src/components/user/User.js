@@ -1,8 +1,16 @@
 import './User.css';
 import PostDetails from "../postDetails/PostDetails";
+import {useState} from "react";
+import {getUser} from "../../services/Api";
 
-export default function User({item, selectPost, postDetails}) {
-    let {id, name, username, email, address} = item;
+export default function User({item}) {
+    const {id, name, username, email, address} = item;
+    const [postDetails, setPostDetails] = useState(null);
+
+    function selectPost(id){
+        getUser(id).then(value => setPostDetails(value.data))
+    };
+
     return (
         <div>
                 <h2>User: {id}</h2>
@@ -14,7 +22,7 @@ export default function User({item, selectPost, postDetails}) {
                 </p>
                 <button onClick={() => {selectPost(id)}}>Show post</button>
                 {
-                    postDetails && <PostDetails detail={postDetails} />
+                    postDetails && postDetails.map(detail => <PostDetails key={detail.id} detail={detail} />)
                 }
                 <hr />
         </div>

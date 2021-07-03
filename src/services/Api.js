@@ -8,6 +8,10 @@ const getUsers = () => {
     return axiosInstance('/users')
 }
 
+const getUser = (id) => {
+    return axiosInstance('/users/' + id + '/posts')
+}
+
 const getPosts = () => {
     return axiosInstance('/posts')
 }
@@ -21,7 +25,7 @@ const getComments = () => {
 }
 
 const getComment = (id) => {
-    return axiosInstance('/comments/' + id)
+    return axiosInstance('/posts/' + id + '/comments')
 }
 
-export {getUsers, getPost, getPosts, getComment, getComments};
+export {getUsers, getUser, getPost, getPosts, getComment, getComments};
