@@ -6,7 +6,7 @@ import Comments from "../comments/Comments";
 import HomePage from "../homePage/HomePage";
 
 
-export default function Header({users, posts, comments}){
+export default function Header(){
     return(
         <Router>
             <div className='header'>
@@ -19,9 +19,9 @@ export default function Header({users, posts, comments}){
             <div className='page'>
                 <Switch>
                     <Route exact path="/" render={() => <HomePage />}/>
-                    <Route path="/users" render={() => <Users items={users}/>}/>
-                    <Route path="/posts" render={() => <Posts items={posts}/>}/>
-                    <Route path="/comments" render={() => <Comments items={comments}/>}/>
+                    <Route path="/users" render={() => <Users />}/>
+                    <Route path="/posts" render={() => <Posts />}/>
+                    <Route path="/comments" render={() => <Comments />}/>
                 </Switch>
             </div>
         </Router>

@@ -1,12 +1,21 @@
 import './Posts.css';
 import Post from "../post/Post";
+import {useEffect, useState} from "react";
+import {getPosts} from "../../services/Api";
 
-export default function Posts({items}){
+export default function Posts(){
+    const [posts, setPosts] = useState([]);
+    useEffect(() => {
+        getPosts().then(value => {
+            setPosts(value.data)
+        })
+    }, []);
+
     return(
         <div>
             <h1>Posts</h1>
             {
-                items.map(value => <Post key={value.id} item={value}/>)
+                posts.map(value => <Post key={value.id} item={value}/>)
             }
         </div>
     )
